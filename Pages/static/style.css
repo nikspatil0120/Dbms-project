@@ -1,0 +1,76 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-image: url(/abstract-blur-hotel-lobby-interior-background-generative-ai_874904-49029.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 400px;
+    width: 400px;
+    position: relative;
+    top: 80px;
+    left: 450px;
+    border-radius: 50px;
+    display: inline-block;
+}
+.login{
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+    position: relative;
+    top: 25px;
+    left: 110px;   
+    font-size: 60px;
+    font-weight: bolder;
+}
+.user_id{
+    position: relative;
+    height: 40px;
+    width: 300px;
+    top: 40px;
+    left: 50px;
+    font-size: 20px;
+}
+.pass{
+    position: relative;
+    top: 60px;
+    left: 50px;
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+}
+.eyeimage{
+    width: 30px;
+    cursor: pointer;
+    position: relative;
+    left: 310px;
+    top: 22px;
+    
+}
+.login_button{
+    position: relative;
+    top: 100px;
+    left: 80px;
+    height: 40px;
+    width: 250px;
+    background-color: rgba(223, 119, 9, 1);
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.role_select{
+    position: relative;
+    top: 80px;
+    left: 20px;
+    height: 40px;
+    width: 290px;
+    /* background-color: rgba(223, 119, 9, 1); */
+    color: black;
+    font-size: 20px;
+    font-weight: bold;  
+}

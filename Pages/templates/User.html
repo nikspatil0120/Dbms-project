@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>    
+    <link rel="stylesheet" href="/User_style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>User</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="showContent('personalDetails')">Personal Details</button>
+            <button onclick="showContent('bookRoom')">Book Room</button>
+            <button onclick="showContent('changeReservation')">Change Reservation</button>
+            <button onclick="showContent('pickupDropService')">Pickup Drop Service</button>
+            <button onclick="showContent('requestRoomService')">Request Room Service</button>
+            <button onclick="showContent('reportLostItem')">Report Lost Item</button>
+            <button onclick="showContent('submitFeedback')">Submit Feedback</button>
+        </div>
+        
+        <div class="content">
+            <div id="personalDetails" class="tabContent">
+                <h2>Personal Details</h2>
+                <p>User can update its own Personal details</p>
+            </div>
+            <div id="bookRoom" class="tabContent" style="display:none;">
+                <h2>Book Room</h2>
+                <p>Through this Page User can only request to book a room but Final confirmation will be Accepted by Receptionist</p>
+            </div>
+            <div id="changeReservation" class="tabContent" style="display:none;">
+                <h2>Change Reservation</h2>
+                <p>Through this Page User can only request to change a reservation but Final confirmation will be Accepted by Receptionist.</p>
+            </div>
+            <div id="pickupDropService" class="tabContent" style="display:none;">
+                <h2>Pickup Drop Service</h2>
+                <p>Through this Page User can only request to book a pickup-drop service but Final confirmation will be Accepted by Receptionist</p>
+            </div>
+            <div id="requestRoomService" class="tabContent" style="display:none;">
+                <h2>Request Room Service</h2>
+                <p>Through this Page User can only request a room service and the data will be reflected in Housekeeping page</p>
+            </div>
+            <div id="reportLostItem" class="tabContent" style="display:none;">
+                <h2>Report Lost Item</h2>
+                <p>Report any lost items here.</p>
+            </div>
+            <div id="submitFeedback" class="tabContent" style="display:none;">
+                <h2>Submit Feedback</h2>
+                <p>Submit your feedback about your stay here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Display the first tab content by default when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            showContent('personalDetails');
+        });
+
+        function showContent(tabId) {
+            // Hide all tab contents
+            var tabs = document.getElementsByClassName("tabContent");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+            // Show the selected tab
+            document.getElementById(tabId).style.display = "block";
+        }
+    </script>
+</body>
+</html>

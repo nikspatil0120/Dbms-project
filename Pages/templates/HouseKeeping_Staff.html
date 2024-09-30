@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housekeeping</title>
+    <link rel="stylesheet" href="/HouseKeeping_Staff_Style.css">
+</head>
+<body>
+    <!-- Header section to display Housekeeping Staff title at the top center -->
+    <div class="header">
+        <h1>Housekeeping Staff</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="showContent('roomService')">Room Service</button>
+            <button onclick="showContent('lostItem')">Lost Item</button>
+        </div>
+        
+        <div class="content">
+            <div id="roomService" class="tabContent">
+                <h2>Room Service</h2>
+                <p>Manage room service requests and updates here.</p>
+            </div>
+            <div id="lostItem" class="tabContent" style="display:none;">
+                <h2>Lost Item</h2>
+                <p>Report and manage lost items here.</p>
+            </div>
+            6
+        </div>
+    </div>
+
+    <script>
+        // Display the first tab content by default when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            showContent('roomService');
+        });
+
+        function showContent(tabId) {
+            // Hide all tab contents
+            var tabs = document.getElementsByClassName("tabContent");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+            // Show the selected tab
+            document.getElementById(tabId).style.display = "block";
+        }
+    </script>
+</body>
+</html>

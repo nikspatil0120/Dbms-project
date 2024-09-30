@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptionist</title>
+    <link rel="stylesheet" href="/Receptionist_style.css">
+</head>
+<body>
+    <!-- Header section to display Receptionist title at the top center -->
+    <div class="header">
+        <h1>Receptionist</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="showContent('bookingPage')">Booking Page</button>
+            <button onclick="showContent('changingReservation')">Changing Reservation</button>
+            <button onclick="showContent('pickupDropService')">Pickup-Drop Service</button>
+            <button onclick="showContent('customerList')">Customer List</button>
+        </div>
+        
+        <div class="content">
+            <div id="bookingPage" class="tabContent">
+                <h2>Booking Page</h2>
+                <p>Here you can manage bookings for guests.</p>
+            </div>
+            <div id="changingReservation" class="tabContent" style="display:none;">
+                <h2>Changing Reservation</h2>
+                <p>Here you can modify existing reservations.</p>
+            </div>
+            <div id="pickupDropService" class="tabContent" style="display:none;">
+                <h2>Pickup-Drop Service</h2>
+                <p>Manage the pickup and drop services for guests here.</p>
+            </div>
+            <div id="customerList" class="tabContent" style="display:none;"> <!-- New Tab Content -->
+                <h2>Customers List</h2>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Date of Birth</th>
+                        <th>Age</th>
+                        <th>Mobile Number</th>
+                    </tr>
+                    {% for customer in customers %}
+                    <tr>
+                        <td>{{ customer.customer_id }}</td>
+                        <td>{{ customer.customer_name }}</td>
+                        <td>{{ customer.customer_address }}</td>
+                        <td>{{ customer.customer_dob }}</td>
+                        <td>{{ customer.customer_age }}</td>
+                        <td>{{ customer.customer_mobile_no }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <a href="{{ url_for('add_customer') }}">Add New Customer</a>
+                <br>
+                <a href="{{ url_for('home') }}">Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Display the first tab content by default when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            showContent('bookingPage');
+        });
+
+        function showContent(tabId) {
+            // Hide all tab contents
+            var tabs = document.getElementsByClassName("tabContent");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+            // Show the selected tab
+            document.getElementById(tabId).style.display = "block";
+        }
+    </script>
+</body>
+</html>

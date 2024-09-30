@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager</title>
+    <link rel="stylesheet" href="/Manager_style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>MANAGER</h1>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="showContent('personalInfo')">Personal Information</button>
+            <button onclick="showContent('addEmployee')">Add Employee</button>
+            <button onclick="showContent('viewEmployees')">View Employees</button>
+            <button onclick="showContent('addRoom')">Add Room</button>
+            <button onclick="showContent('roomList')">Room List</button>
+            <button onclick="showContent('viewFeedback')">View Feedback</button>
+        </div>
+        
+    <div class="content">
+            <div id="personalInfo" class="tabContent">
+                <h2>Personal Information</h2>
+                <p>Details about the logged-in user will appear here.</p>
+            </div>
+
+            <div id="addEmployee" class="tabContent" style="display:none;">
+                <h2>Add Employee</h2>
+                <div class="container2">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST">
+            <label for="employee_name">Name:</label>
+            <input type="text" id="employee_name" name="employee_name" required><br>
+
+            <label for="employee_address">Address:</label>
+            <input type="text" id="employee_address" name="employee_address" required><br>
+
+            <label for="employee_job_desc">Job Description:</label>
+            <select id="employee_job_desc" name="employee_job_desc" required>
+                <option value="">Select Job Description</option>
+                <option value="Manager">Manager</option>
+                <option value="Housekeeping Staff">Housekeeping Staff</option>
+                <option value="Receptionist">Receptionist</option>
+            </select><br>
+
+            <input type="submit" value="Add Employee">
+        </form>
+
+        <a href="{{ url_for('home') }}">Back to Home</a>
+        </div>
+            </div>
+
+            <div id="viewEmployees" class="tabContent" style="display:none;">
+                <h2>Employee List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Mobile Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in employees %}
+                        <tr>
+                            <td>{{ employee.employee_id }}</td>
+                            <td>{{ employee.employee_name }}</td>
+                            <td>{{ employee.employee_address }}</td>
+                            <td>{{ employee.employee_mobile_no }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <a href="{{ url_for('home') }}">Back to Home</a>
+            </div>
+
+            <div id="addRoom" class="tabContent" style="display:none;"> <!-- New Content Section -->
+                <h2>Add Room</h2>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST">
+            <label for="room_no">Room No:</label>
+            <input type="text" id="room_no" name="room_no" required><br>
+
+            <label for="room_rates">Rates:</label>
+            <input type="number" id="room_rates" name="room_rates" required><br>
+
+            <label for="room_status">Status:</label>
+            <select id="room_status" name="room_status" required>
+                <option value="">Select Status</option>
+                <option value="Vacant">Vacant</option>
+                <option value="Occupied">Occupied</option>
+            </select><br>
+
+            <input type="submit" value="Add Room">
+        </form>
+
+        <a href="{{ url_for('home') }}">Back to Home</a>
+            </div>
+
+            <div id="roomList" class="tabContent" style="display:none;"> <!-- New Content Section -->
+                <h2>Room List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Room No</th>
+                            <th>Rates</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for room in rooms %}
+                        <tr>
+                            <td>{{ room.room_no }}</td>
+                            <td>{{ room.room_rates }}</td>
+                            <td>{{ room.room_status }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        
+                <!-- Link to go back to home -->
+                <div class="nav-links">
+                    <a href="{{ url_for('home') }}">Back to Home</a>
+                </div>
+            </div>
+            <div id="viewFeedback" class="tabContent" style="display:none;">
+                <h2>View Feedback</h2>
+                <p>Read feedback submitted by customers here.</p>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            showContent('personalInfo');
+        });
+        function showContent(tabId) {
+            // Hide all tab contents
+            var tabs = document.getElementsByClassName("tabContent");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+            // Show the selected tab
+            document.getElementById(tabId).style.display = "block";
+        }
+    </script>
+</body>
+</html>
