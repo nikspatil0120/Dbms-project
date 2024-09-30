@@ -1,0 +1,123 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Updated font for a modern look */
+    background-color: #e9ecef; /* Light gray background for the entire page */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+h1 {
+    color: #333; /* Dark color for headings */
+    text-align: center; /* Center align heading */
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 2.5rem; /* Larger font size for headings */
+}
+
+/* Container Styles */
+.container {
+    width: 90%; /* Set width of the container */
+    max-width: 1200px; /* Maximum width to prevent stretching on larger screens */
+    margin: 0 auto; /* Center the container */
+    background-color: #ffffff; /* White background for the container */
+    padding: 30px; /* Increased padding inside the container */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow effect */
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Space between links */
+    margin-bottom: 30px; /* Space below navigation */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Bootstrap primary blue color */
+    padding: 10px 15px; /* Add padding around links */
+    border: 1px solid transparent; /* Transparent border for hover effect */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth background color transition */
+}
+
+.nav-links a:hover {
+    background-color: #e2e6ea; /* Light gray background on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders */
+    margin-top: 20px; /* Space above the table */
+}
+
+table th, table td {
+    padding: 12px; /* Increased padding for table cells */
+    border: 1px solid #ddd; /* Light gray border for cells */
+    text-align: left; /* Left align text */
+}
+
+table th {
+    background-color: #f8f9fa; /* Light gray background for header */
+    color: #333; /* Dark color for header text */
+    font-weight: bold; /* Bold header text */
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px; /* Space above the form */
+}
+
+label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 8px; /* Space below labels */
+    font-weight: bold; /* Bold labels */
+    color: #555; /* Slightly lighter color for labels */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%; /* Full width for input fields */
+    padding: 12px; /* Increased padding for input fields */
+    margin-bottom: 20px; /* Space below input fields */
+    border: 1px solid #ccc; /* Light gray border for input fields */
+    border-radius: 4px; /* Rounded corners for input fields */
+    font-size: 1rem; /* Consistent font size */
+}
+
+input[type="submit"] {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* White text color */
+    cursor: pointer; /* Change cursor on hover */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 12px; /* Padding for the button */
+    font-size: 1rem; /* Consistent font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-1px); /* Slight lift effect on hover */
+}
+
+/* Message Styles */
+ul {
+    list-style-type: none; /* Remove list style */
+    padding: 0; /* Remove padding */
+    margin: 20px 0; /* Space above and below messages */
+}
+
+li.success {
+    color: green; /* Success message color */
+    font-weight: bold; /* Bold success message */
+}
+
+li.error {
+    color: red; /* Error message color */
+    font-weight: bold; /* Bold error message */
+}
